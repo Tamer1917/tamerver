@@ -1,14 +1,23 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "api/update-score.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/update-score",
-      "dest": "api/update-score.py"
+      "dest": "/api/update-score.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
